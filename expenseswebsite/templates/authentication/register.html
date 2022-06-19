@@ -18,17 +18,24 @@
       </div>
 
       <form class="" action="" method="post">
+        {% csrf_token %}
         <div class="form-group ">
           <input type="text"
           placeholder="Username"
           class="form-control form-control-sm"
           name="username" id="usernameField" value="">
         </div>
+        <div class="invalid-feedback invalid_feedback" style="display:none">
+          
+        </div>
+        <p class="text-sm text-success usernameSuccessOutput"></p>
         <div class="form-group">
           <input type="email"
           placeholder="Email"
           class="form-control form-control-sm"
           name="email" id="emailField">
+        </div>
+        <div class="emailFeedbackArea" style="display:none">
         </div>
         <div class="form-group">
           <input type="password"

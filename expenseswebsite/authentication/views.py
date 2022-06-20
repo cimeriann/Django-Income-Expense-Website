@@ -4,6 +4,7 @@ import json
 from django.http import JsonResponse
 from django.contrib.auth.models import User
 from validate_email import validate_email
+from django.contrib import messages
 # Create your views here.
 class EmailValidationView(View):
   def get(self, request):
@@ -28,5 +29,14 @@ class UsernameValidationView(View):
       return JsonResponse({'username_valid': True})
 
 class RegistrationView(View):
-  def get(self, request):
-    return render(request, 'authentication/register.html')
+    def get(self, request):
+        return render(request, 'authentication/register.html')
+
+    def post(self, request):
+        
+        messages.success(request, 'Success!')
+        messages.info(request, 'info')
+        messages.warning(request, 'warning')
+        messages.error(request, 'error')
+
+        return render(request, 'authentication/register.html')

@@ -34,9 +34,9 @@ class RegistrationView(View):
 
     def post(self, request):
         
-        messages.success(request, 'Success!')
-        messages.info(request, 'info')
-        messages.warning(request, 'warning')
-        messages.error(request, 'error')
-
+        # GET USER DATA
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
+        
         return render(request, 'authentication/register.html')
